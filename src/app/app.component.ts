@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BeigeComponent } from "./beige/beige.component";
 import { CourseCardComponent } from './course-card/course-card.component';
+import { db } from "./db";
+import { DB } from './Data';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +12,9 @@ import { CourseCardComponent } from './course-card/course-card.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'basic';
+  data = db;
 
-  data = {
-    name: "John",
-    age: 30,
-    city: "New York"
-  }
-
-  click(){
-    return "Hello"
-  }
-
-  onKeyUp(value: string){
-    this.data.name = value;
+  onBookingPlaceSelected(event: DB){
+    console.log("Booking place: ", event);
   }
 }
