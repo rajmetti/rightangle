@@ -22,6 +22,10 @@ export class CourseCardComponent {
     vibes: ''
   }
 
+  @Input()
+  index: number = 0;
+  
+
   @Output()
   bookPlace = new EventEmitter<DB>();
 

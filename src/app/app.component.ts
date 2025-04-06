@@ -14,6 +14,8 @@ import { DB } from './Data';
 export class AppComponent {
   data = db;
 
+  count: number =0
+
   onBookingPlaceSelected(event: DB){
     console.log("Booking place: ", event);
   }
