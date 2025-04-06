@@ -2,11 +2,10 @@
   <h1 class="text-blue-600/100 dark:text-sky-400/100">Welcome to Jubilee</h1>
 </div>
 <div class="flex gap-4 justify-center items-center">
+  @for (item of data; track item.id) {
   <app-course-card
     (bookPlace)="onBookingPlaceSelected($event)"
-    [place]="data[0]"
+    [place]="item"
   ></app-course-card>
-  <app-course-card [place]="data[1]"></app-course-card>
-  <app-course-card [place]="data[2]"></app-course-card>
-  <app-course-card [place]="data[3]"></app-course-card>
+  }
 </div>
