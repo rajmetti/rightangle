@@ -2,7 +2,7 @@
   <h1 class="text-blue-600/100 dark:text-sky-400/100">Welcome to Jubilee</h1>
 </div>
 <div class="flex gap-4 justify-center items-center">
-  @for (item of data; track item.id; let inde = $index; let count = $count) {
+  @for (item of data; track placeTrack; let inde = $index; let count = $count) {
   <app-course-card
     (bookPlace)="onBookingPlaceSelected($event)"
     [index]="inde"

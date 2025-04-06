@@ -19,4 +19,8 @@ export class AppComponent {
   onBookingPlaceSelected(event: DB){
     console.log("Booking place: ", event);
   }
+
+  placeTrack(index:number, place:DB ){
+    return place.id
+  }
 }
