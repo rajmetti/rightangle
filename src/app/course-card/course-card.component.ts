@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {DB} from "../Data";
 import { log } from 'console';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-course-card',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css'
 })
@@ -32,6 +33,10 @@ export class CourseCardComponent {
   onPlacing(){
     this.bookPlace.emit(this.place);
     console.log("Placing: ", this.place.name);
+  }
+
+  isImageVisible(): boolean{
+    return this.place.image !== ''
   }
 
 }
