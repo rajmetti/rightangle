@@ -20,7 +20,8 @@ export class CourseCardComponent {
     description: '',
     image: '',
     season: '',
-    vibes: ''
+    vibes: '',
+    active: false
   }
 
   @Input()
@@ -37,6 +38,28 @@ export class CourseCardComponent {
 
   isImageVisible(): boolean{
     return this.place.image !== ''
+  }
+
+  getStyles(){
+    return ['card']
+    // return {
+    //   'card' : true
+    // }
+  }
+
+  isActiveStyle(){
+    if(this.place.active){
+      return {
+      'opacity': '100%'
+      }
+    }else 
+    return {
+      'opacity': '75%'
+    }
+  }
+
+  get isActiveCard(): boolean {
+    return this.place.active !== false; // Default to true if undefined
   }
 
 }
