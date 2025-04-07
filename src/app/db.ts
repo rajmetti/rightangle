@@ -33,5 +33,13 @@ export const db : DB[] = [
         "description": "Hokkaido is famous for its winter sports and stunning snow-covered landscapes. It's a great place for skiing and snowboarding.",
         "image": "https://cdn.pixabay.com/photo/2022/04/04/02/52/cherry-blossoms-7110279_1280.jpg",
         "vibes": "Chilly, Adventurous"
+    },
+    {
+        "id": 5,
+        "name": "Hokkaido",
+        "season": "Winter",
+        "description": "Hokkaido is famous for its winter sports and stunning snow-covered landscapes. It's a great place for skiing and snowboarding.",
+        "image": "https://cdn.pixabay.com/photo/2022/04/04/02/52/cherry-blossoms-7110279_1280.jpg",
+        "vibes": "Chilly, Adventurous"
     }
 ]

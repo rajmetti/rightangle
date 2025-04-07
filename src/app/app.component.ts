@@ -21,6 +21,7 @@ export class AppComponent {
   }
 
   placeTrack(index:number, place:DB ){
+    
     return place.id
   }
 }
