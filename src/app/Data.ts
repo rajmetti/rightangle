@@ -5,5 +5,5 @@ export interface DB {
     image: string;
     season: string;
     vibes: string;
-    active: boolean
+    active: boolean;
 }

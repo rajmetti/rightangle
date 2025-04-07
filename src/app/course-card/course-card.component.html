@@ -62,7 +62,59 @@
         </p>
         <p class="text-cyan-600 text-xl font-semibold">$95.00</p>
       </div>
-      <small>Season: {{ place.season }}</small>
+
+      <!-- Season Chip with SVG -->
+      <div class="flex flex-wrap gap-2 mb-2" [ngSwitch]="place.season">
+        <span
+          class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800"
+          *ngSwitchCase="'Spring'"
+        >
+          <img
+            src="assets/spring.svg"
+            fill="currentColor"
+            alt="Spring logo"
+            class="w-4 h-4 mr-1"
+          />
+          {{ place.season }}
+        </span>
+        <span
+          class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800"
+          *ngSwitchCase="'Autumn'"
+        >
+          <img
+            src="assets/autumn.svg"
+            fill="currentColor"
+            alt="Spring logo"
+            class="w-4 h-4 mr-1"
+          />
+          {{ place.season }}
+        </span>
+        <span
+          class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800"
+          *ngSwitchCase="'Summer'"
+        >
+          <img
+            src="assets/summer.svg"
+            fill="currentColor"
+            alt="Spring logo"
+            class="w-4 h-4 mr-1"
+          />
+          {{ place.season }}
+        </span>
+        <span
+          class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+          *ngSwitchCase="'Winter'"
+        >
+          <img
+            src="assets/winter.svg"
+            fill="currentColor"
+            alt="Spring logo"
+            class="w-4 h-4 mr-1"
+          />
+          {{ place.season }}
+        </span>
+      </div>
+
       <p class="text-slate-600 leading-normal font-light">
         {{ place.description }}
       </p>
@@ -76,6 +128,52 @@
       </button>
     </div>
   </div>
+
+  <!-- <div class="flex flex-wrap gap-2 mb-2"> -->
+  <!-- @switch (place.season) { -->
+  <!-- Spring -->
+  <!-- @case ('Spring') {
+    <span
+      class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800"
+    >
+      <img
+        src="assets/spring.svg"
+        fill="currentColor"
+        alt="Spring logo"
+        class="w-4 h-4 mr-1"
+      />
+      {{ place.season }}
+    </span>
+    } -->
+  <!-- Summer -->
+  <!-- @case ('Summer') {
+    <span
+      class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800"
+    >
+      <img src="assets/summer.svg" alt="Spring logo" class="w-4 h-4 mr-1" />
+      {{ place.season }}
+    </span>
+    } -->
+  <!-- Autumn -->
+  <!-- @case ('Autumn') {
+    <span
+      class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800"
+    >
+      <img src="assets/autumn.svg" alt="Spring logo" class="w-4 h-4 mr-1" />
+      {{ place.season }}
+    </span>
+    } -->
+  <!-- Winter -->
+  <!-- @case ('Winter') {
+    <span
+      class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+    >
+      <img src="assets/winter.svg" alt="Spring logo" class="w-4 h-4 mr-1" />
+      {{ place.season }}
+    </span>
+    }  -->
+  <!-- } -->
+  <!-- </div> -->
 
   <!-- <div class="relative p-2.5 h-96 overflow-hidden rounded-xl bg-clip-border">
     @if (place.image) {
