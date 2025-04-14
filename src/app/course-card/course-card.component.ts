@@ -21,7 +21,10 @@ export class CourseCardComponent {
     image: '',
     season: '',
     vibes: '',
-    active: false
+    active: false,
+    period: new Date(),
+    season_starts: new Date(),
+    season_ends: new Date()
   }
 
   @Input()

@@ -9,7 +9,10 @@ export const db : DB[] = [
         "description": "Tokyo is famous for its cherry blossoms in spring. The city is filled with beautiful parks and gardens where you can enjoy the stunning pink flowers.",
         "image": "https://cdn.pixabay.com/photo/2017/04/15/11/51/mt-fuji-2232246_1280.jpg",
         "vibes": "Peaceful, Blossoming",
-        "active" : true
+        "active" : true,
+        "period": new Date(),
+        "season_starts" : new Date(2025,2,20),
+        "season_ends" : new Date(2025,5,21)
     },
     {
         "id": 2,
@@ -18,7 +21,10 @@ export const db : DB[] = [
         "description": "Kyoto is known for its stunning autumn foliage. The city's temples and gardens are adorned with vibrant red and orange leaves during this season.",
         "image": "https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg",
         "vibes": "Serene, Vibrant",
-        "active" : true
+        "active" : true,
+        "period": new Date(),
+        "season_starts" : new Date(2025,8,22),
+        "season_ends" : new Date(2025,11,21)
 
     },
     {
@@ -28,8 +34,10 @@ export const db : DB[] = [
         "description": "Okinawa is a tropical paradise with beautiful beaches and warm weather. It's the perfect destination for summer vacations.",
         "image": "https://cdn.pixabay.com/photo/2019/10/02/16/56/landscape-4521413_1280.jpg",
         "vibes": "Relaxing, Tropical",
-        "active" : true
-
+        "active" : true,
+        "period": new Date(),
+        "season_starts" : new Date(2025,5,21),
+        "season_ends" : new Date(2025,8,22)
     },
     {
         "id": 4,
@@ -38,7 +46,10 @@ export const db : DB[] = [
         "description": "Hokkaido is famous for its winter sports and stunning snow-covered landscapes. It's a great place for skiing and snowboarding.",
         "image": "https://cdn.pixabay.com/photo/2022/04/04/02/52/cherry-blossoms-7110279_1280.jpg",
         "vibes": "Chilly, Adventurous",
-        "active" : true
+        "active" : true,
+        "period": new Date(),
+        "season_starts" : new Date(2025,11,22),
+        "season_ends" : new Date(2025,2,20)
 
     },
     {
@@ -48,6 +59,10 @@ export const db : DB[] = [
         "description": "Hokkaido is famous for its winter sports and stunning snow-covered landscapes. It's a great place for skiing and snowboarding.",
         "image": "https://cdn.pixabay.com/photo/2022/04/04/02/52/cherry-blossoms-7110279_1280.jpg",
         "vibes": "Chilly, Adventurous",
-        "active" : false
+        "active" : false,
+        "period": new Date(2025,2,20),
+        "season_starts" : new Date(2025,11,22),
+        "season_ends" : new Date(2025,2,20)
+
     }
 ]

@@ -6,4 +6,7 @@ export interface DB {
     season: string;
     vibes: string;
     active: boolean;
+    period: Date;
+    season_starts: Date;
+    season_ends: Date;
 }

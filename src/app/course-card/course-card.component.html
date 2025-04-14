@@ -58,7 +58,7 @@
     <div class="p-4">
       <div class="mb-2 flex items-center justify-between">
         <p class="text-slate-800 text-xl font-semibold">
-          {{ index }}. Location: {{ place.name }}
+          {{ index + 1 }}. {{ place.name }}
         </p>
         <p class="text-cyan-600 text-xl font-semibold">$95.00</p>
       </div>
@@ -78,29 +78,44 @@
           {{ place.season }}
         </span>
         <span
-          class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800"
+          class="relative inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800 overflow-hidden"
           *ngSwitchCase="'Autumn'"
         >
           <img
             src="assets/autumn.svg"
             fill="currentColor"
-            alt="Spring logo"
+            alt="Autumn logo"
             class="w-4 h-4 mr-1"
           />
           {{ place.season }}
+
+          <!-- Falling leaves -->
+          <div class="absolute inset-0 pointer-events-none">
+            <div class="animate-leaf-fall absolute top-0 left-1/3 text-xs">
+              🍂
+            </div>
+            <div
+              class="animate-leaf-fall delay-300 absolute top-0 left-2/3 text-sm"
+            >
+              🍁
+            </div>
+          </div>
         </span>
+
         <span
-          class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800"
+          class="relative inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 overflow-hidden z-10"
           *ngSwitchCase="'Summer'"
         >
           <img
             src="assets/summer.svg"
-            fill="currentColor"
-            alt="Spring logo"
-            class="w-4 h-4 mr-1"
+            alt="Summer logo"
+            class="w-4 h-4 mr-1 z-20"
           />
           {{ place.season }}
+
+          <!-- 🔥 Blazing Flames Layer -->
         </span>
+
         <span
           class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
           *ngSwitchCase="'Winter'"
@@ -112,6 +127,24 @@
             class="w-4 h-4 mr-1"
           />
           {{ place.season }}
+        </span>
+        <span class="flex items-center text-xs gap-1 text-gray-500">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 4h10M5 11h14M5 15h14M5 19h14"
+            />
+          </svg>
+          {{ place.season_starts | date : "longDate" }} -
+          {{ place.season_ends | date : "longDate" }}
         </span>
       </div>
 
