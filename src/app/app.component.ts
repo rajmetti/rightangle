@@ -1,16 +1,22 @@
-import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Injectable, OnChanges, OnInit, QueryList, signal, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BeigeComponent } from "./beige/beige.component";
 import { CourseCardComponent } from './course-card/course-card.component';
 import { db } from "./db";
 import { DB } from './Data';
 import { CommonModule } from '@angular/common';
+import { CountryComponent } from "./country/country.component";
+import { Country } from './models/country';
+import { SupabaseService } from './supabase-componenet';
+import { CountryDetailsComponent } from "./country-details/country-details.component";
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BeigeComponent, CourseCardComponent, CommonModule],
+  imports: [CommonModule, CountryComponent, CountryDetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+@Injectable({providedIn: 'root'})
 export class AppComponent implements AfterViewInit, OnChanges, OnInit{
 
   // @ViewChild('card', {read: ElementRef})
@@ -18,42 +24,49 @@ export class AppComponent implements AfterViewInit, OnChanges, OnInit{
   @ViewChildren(CourseCardComponent)
   card?: QueryList<CourseCardComponent>;
 
-  data = db;
+  countryDetail: Country = {
+    id: 0,
+    code: '',
+    country: '',
+    flag: '',
+    la: '',
+    lt: '',
+    name: ''
+  }
 
   count: number =0
 
   ngAfterViewInit(){
-    this.card?.changes.subscribe(
-      (card: QueryList<CourseCardComponent>) => {
-        console.log("here is the new item ", card.last)
-      }
-    )
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(`This is the changes`)
   }
   ngOnInit(): void {
-    console.log(`This is the OnInit`)
+    this.onFetchCountires()
+    this.onChangeCountry()
   }
 
-  onBookingPlaceSelected(event: DB){
-    console.log("Booking place: ", this.card);
-    this.data.push(
-      {
-        "id": 6,
-        "name": "Hokkaido",
-        "season": "Winter",
-        "description": "Hokkaido is famous for its winter sports and stunning snow-covered landscapes. It's a great place for skiing and snowboarding.",
-        "image": "https://cdn.pixabay.com/photo/2022/04/04/02/52/cherry-blossoms-7110279_1280.jpg",
-        "vibes": "Chilly, Adventurous",
-        "active" : false,
-        "period": new Date(2025,2,20),
-        "season_starts" : new Date(2025,11,22),
-        "season_ends" : new Date(2025,2,20)
+  data:Country[] = []
 
-    }
-    )
+  val = signal(this.data[0])
+
+  onChangeCountry(){
+    const random = Math.floor(Math.random() * this.data.length)
+    this.val.set(this.data[random])
   }
+
+  onSelectCo(id: number){
+    const random = Math.floor(Math.random() * this.data.length)
+    this.countryDetail = this.data[id-1]
+  }
+
+  onFetchCountires(){
+    this.supabaseService.client().then((response: Country[]) => {
+      this.data = response
+    }).catch((error) => {
+      console.log("err ", error)
+    }) 
+  }
+  constructor(private supabaseService: SupabaseService) {}
 
 }
 

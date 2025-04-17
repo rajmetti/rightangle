@@ -1,0 +1,54 @@
+.bg {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #000;
+    position: relative;
+  }
+
+  
+  /* 🌠 Frosted Effect Layout (Header, Body, Footer) */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Center vertically */
+    align-items: center;      /* Center horizontally */
+    height: 100vh;            /* Full viewport height */
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .frosted {
+    background: rgba(0, 0, 0, 0.4); /* Slightly more opaque */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+    padding: 0.5rem;
+    color: #fff;
+  }
+
+  .header {
+    height: 80px; /* Larger header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main {
+    flex-grow: 1; /* Takes up remaining space */
+    overflow-y: auto;
+    margin: 1rem 0;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+  }
+
+  .footer {
+    height: 60px; /* Larger footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -1,4 +1,4 @@
-<div class="justify-items-center">
+<!-- <div class="justify-items-center">
   <h1 class="text-blue-600/100 dark:text-sky-400/100">Welcome to Jubilee</h1>
 </div>
 <div
@@ -43,11 +43,82 @@
     </div>
   </div>
   }
+</div> -->
 
-  <!-- <app-course-card
+<!-- Falling Stars -->
+<div class="bg">
+  <div class="container">
+    <!-- Header -->
+    <header class="frosted header w-auto">Frosted Galactic Header</header>
+
+    <!-- Main Body -->
+    <main class="frosted main">
+      <main class="flex-1 grid grid-cols-[1fr_2fr] gap-2">
+        <!-- Names list (smaller) -->
+        <div
+          class="bg-black backdrop-blur-md border border-white/20 rounded-2xl p-4 overflow-y-auto h-full max-h-[calc(100vh-8rem)]"
+        >
+          <h2 class="text-lg font-semibold text-white mb-4">Names</h2>
+          <ul class="space-y-2 text-white text-sm">
+            <li class="hover:text-purple-300 cursor-pointer">
+              <app-country
+                [name]="data[0].country"
+                [avatar]="data[0].flag"
+                [id]="data[0].id"
+                (click)="onChangeCountry()"
+                (select)="onSelectCo($event)"
+              ></app-country>
+            </li>
+            <li class="hover:text-purple-300 cursor-pointer">
+              <app-country
+                [name]="data[1].country"
+                [avatar]="data[1].flag"
+                [id]="data[1].id"
+                (select)="onSelectCo($event)"
+              ></app-country>
+            </li>
+            <li class="hover:text-purple-300 cursor-pointer">
+              <app-country
+                [name]="data[2].country"
+                [avatar]="data[2].flag"
+                [id]="data[2].id"
+                (select)="onSelectCo($event)"
+              ></app-country>
+            </li>
+            <li class="hover:text-purple-300 cursor-pointer">
+              <app-country
+                [name]="data[3].country"
+                [avatar]="data[3].flag"
+                [id]="data[3].id"
+                (select)="onSelectCo($event)"
+              ></app-country>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Details view (wider) -->
+        <div
+          class="bg-black backdrop-blur-md border border-white/20 rounded-2xl overflow-y-auto h-full max-h-[calc(100vh-8rem)]"
+        >
+          <app-country-details
+            [code]="countryDetail.code"
+            [latitude]="countryDetail.la"
+            [longitude]="countryDetail.lt"
+            [name]="countryDetail.country"
+          ></app-country-details>
+        </div>
+      </main>
+    </main>
+
+    <!-- Footer -->
+    <footer class="frosted footer">© 2025 - Cosmic Footer Vibe</footer>
+  </div>
+</div>
+<!-- <app-course-card
     *ngFor="let item of data; index as inde; count as count"
     (bookPlace)="onBookingPlaceSelected($event)"
     [index]="inde"
     [place]="item"
   ></app-course-card> -->
-</div>
+
+<!-- <app-beige></app-beige> -->
