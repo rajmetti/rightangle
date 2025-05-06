@@ -44,9 +44,13 @@
   </div>
   }
 </div> -->
-
 <!-- Falling Stars -->
 <div class="bg">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
   <div class="container">
     <!-- Header -->
     <header class="frosted header w-auto">Frosted Galactic Header</header>
@@ -58,41 +62,23 @@
         <div
           class="bg-black backdrop-blur-md border border-white/20 rounded-2xl p-4 overflow-y-auto h-full max-h-[calc(100vh-8rem)]"
         >
-          <h2 class="text-lg font-semibold text-white mb-4">Names</h2>
+          <h2 class="text-lg font-semibold text-white mb-4">People</h2>
           <ul class="space-y-2 text-white text-sm">
+            @for (tweet of tweets; track $index) {
             <li class="hover:text-purple-300 cursor-pointer">
               <app-country
-                [name]="data[0].country"
-                [avatar]="data[0].flag"
-                [id]="data[0].id"
+                [name]="tweet.user.name"
+                [avatar]="
+                  tweet.user.profile_image_url
+                    ? tweet.user.profile_image_url
+                    : 'https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=7F00CB'
+                "
+                [id]="$index"
                 (click)="onChangeCountry()"
                 (select)="onSelectCo($event)"
               ></app-country>
             </li>
-            <li class="hover:text-purple-300 cursor-pointer">
-              <app-country
-                [name]="data[1].country"
-                [avatar]="data[1].flag"
-                [id]="data[1].id"
-                (select)="onSelectCo($event)"
-              ></app-country>
-            </li>
-            <li class="hover:text-purple-300 cursor-pointer">
-              <app-country
-                [name]="data[2].country"
-                [avatar]="data[2].flag"
-                [id]="data[2].id"
-                (select)="onSelectCo($event)"
-              ></app-country>
-            </li>
-            <li class="hover:text-purple-300 cursor-pointer">
-              <app-country
-                [name]="data[3].country"
-                [avatar]="data[3].flag"
-                [id]="data[3].id"
-                (select)="onSelectCo($event)"
-              ></app-country>
-            </li>
+            }
           </ul>
         </div>
 
@@ -100,12 +86,15 @@
         <div
           class="bg-black backdrop-blur-md border border-white/20 rounded-2xl overflow-y-auto h-full max-h-[calc(100vh-8rem)]"
         >
-          <app-country-details
+          <!-- <app-country-details
             [code]="countryDetail.code"
             [latitude]="countryDetail.la"
             [longitude]="countryDetail.lt"
             [name]="countryDetail.country"
-          ></app-country-details>
+          ></app-country-details> -->
+          <app-tweet-details
+            [selectedTweet]="selectedTweet"
+          ></app-tweet-details>
         </div>
       </main>
     </main>
@@ -114,6 +103,7 @@
     <footer class="frosted footer">© 2025 - Cosmic Footer Vibe</footer>
   </div>
 </div>
+
 <!-- <app-course-card
     *ngFor="let item of data; index as inde; count as count"
     (bookPlace)="onBookingPlaceSelected($event)"

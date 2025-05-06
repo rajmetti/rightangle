@@ -1,0 +1,41 @@
+<!-- Details view (wider) -->
+<div
+  class="bg-black backdrop-blur-md border border-white/20 rounded-2xl overflow-y-auto h-full max-h-[calc(100vh-8rem)]"
+>
+  <div
+    class="hidden lg:block lg:w-1/2 bg-white shadow-lg p-6 overflow-y-auto"
+    *ngIf="selectedTweet"
+  >
+    <h2 class="text-xl font-semibold mb-4">Tweet Details</h2>
+    <p class="mb-2 text-gray-800">{{ selectedTweet.text }}</p>
+
+    <div class="space-y-2 text-sm text-gray-700">
+      <div><strong>User:</strong> {{ selectedTweet.user.name }}</div>
+      <div>
+        <strong>Description:</strong>
+        {{ selectedTweet.user.description }}
+      </div>
+      <div>
+        <strong>Location:</strong>
+        {{ selectedTweet.user.location || "N/A" }}
+      </div>
+      <div>
+        <strong>Created:</strong>
+        {{ selectedTweet.created_at }}
+      </div>
+      <div><strong>Source:</strong> {{ selectedTweet.source }}</div>
+      <div><strong>Language:</strong> {{ selectedTweet.user.lang }}</div>
+      <div>
+        <strong>URL:</strong>
+        <a
+          class="text-blue-500 underline"
+          [href]="selectedTweet.user.url"
+          target="_blank"
+          >Profile</a
+        >
+      </div>
+      <div><strong>Retweeted:</strong> {{ selectedTweet.retweeted }}</div>
+      <div><strong>Favorited:</strong> {{ selectedTweet.favorited }}</div>
+    </div>
+  </div>
+</div>

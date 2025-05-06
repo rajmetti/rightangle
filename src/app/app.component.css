@@ -4,6 +4,7 @@
     height: 100%;
     background-color: #000;
     position: relative;
+    overflow: hidden;
   }
 
   
@@ -16,14 +17,15 @@
     height: 100vh;            /* Full viewport height */
     padding: 2rem;
     box-sizing: border-box;
+    width: 100%;
   }
 
   .frosted {
     background: rgba(0, 0, 0, 0.4); /* Slightly more opaque */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(54, 20, 69);
     border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgb(73, 38, 83);
     width: 100%;
     max-width: 800px;
     padding: 0.5rem;
@@ -51,4 +53,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+
+
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45, 6, 71, 0.8) 0%, rgba(38, 3, 56, 0.369) 60%, rgba(10,10,10,0) 100%);
+    opacity: 1;
+  }
+  
+  /* Different sizes and positions */
+  .bubble:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 15%;
+  }
+  
+  .bubble:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    top: 30%;
+    left: 40%;
+  }
+  
+  .bubble:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    top: 60%;
+    left: 20%;
+  }
+  
+  .bubble:nth-child(4) {
+    width: 350px;
+    height: 350px;
+    top: 50%;
+    left: 70%;
+  }
+  
+  .bubble:nth-child(5) {
+    width: 300px;
+    height: 300px;
+    top: 80%;
+    left: 60%;
   }
